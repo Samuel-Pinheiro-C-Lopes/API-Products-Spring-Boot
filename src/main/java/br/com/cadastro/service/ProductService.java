@@ -32,6 +32,6 @@ public class ProductService {
 	// Lists all the products
 	public List<Product> findAll() {
 		return repo.findAll();
-;	}
+	}
 	
 }
