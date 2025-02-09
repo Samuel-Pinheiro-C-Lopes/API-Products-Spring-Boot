@@ -34,4 +34,21 @@ public class ProductService {
 		return repo.findAll();
 	}
 	
+	public Product save(Product product) {
+		product.setId(null);
+		return repo.save(product);
+	}
+	
+	public Product update(Product product) {
+		Product oldProduct = this.findById(product.getId());
+		this.updateProduct(oldProduct, product);
+		return repo.save(oldProduct);
+	}
+	
+	private void updateProduct(Product oldProduct, Product updatedProduct) {
+		oldProduct.setName(updatedProduct.getName());
+		oldProduct.setAmount(updatedProduct.getAmount());
+		oldProduct.setValue(updatedProduct.getValue());
+	}
+	
 }

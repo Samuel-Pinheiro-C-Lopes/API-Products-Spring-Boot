@@ -18,27 +18,27 @@ public class Product implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String nome;
-	private Integer quantidade;
-	private Double valor;
+	private String name;
+	private Integer amount;
+	private Double value;
 	
 	// Constructor
-	public Product(Integer id, String nome, Integer quantidade, Double valor) {
+	public Product(Integer id, String name, Integer amount, Double value) {
 		super();
 		this.id = id;
-		this.nome = nome;
-		this.quantidade = quantidade;
-		this.valor = valor;
+		this.name = name;
+		this.amount = amount;
+		this.value = value;
 	}
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", quantidade=" + quantidade + ", valor=" + valor + "]";
+		return "Product [id=" + id + ", name=" + name + ", amount=" + amount + ", value=" + value + "]";
 	}
 
 	@Override
@@ -52,7 +52,6 @@ public class Product implements Serializable {
 		Product other = (Product) obj;
 		return Objects.equals(id, other.id);
 	}
-
 	
 	// Getters and Setters
 	public Integer getId() {
@@ -63,27 +62,27 @@ public class Product implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Integer getQuantidade() {
-		return quantidade;
+	public Integer getAmount() {
+		return amount;
 	}
 
-	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
+	public void setAmount(Integer amount) {
+		this.amount = amount;
 	}
 
-	public Double getValor() {
-		return valor;
+	public Double getValue() {
+		return value;
 	}
 
-	public void setValor(Double valor) {
-		this.valor = valor;
+	public void setValue(Double value) {
+		this.value = value;
 	}
 }
