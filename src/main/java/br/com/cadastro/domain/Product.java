@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 
 @Entity
 // Entity that will represent the products from the project
-public class Produto implements Serializable {
+public class Product implements Serializable {
 	
 	// Static constant serialization shared across all products
 	private static final long serialVersionUID = 1L;
@@ -23,7 +23,7 @@ public class Produto implements Serializable {
 	private Double valor;
 	
 	// Constructor
-	public Produto(Integer id, String nome, Integer quantidade, Double valor) {
+	public Product(Integer id, String nome, Integer quantidade, Double valor) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -49,7 +49,7 @@ public class Produto implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Produto other = (Produto) obj;
+		Product other = (Product) obj;
 		return Objects.equals(id, other.id);
 	}
 
