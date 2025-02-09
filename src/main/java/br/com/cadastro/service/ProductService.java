@@ -17,6 +17,7 @@ public class ProductService {
 	@Autowired
 	private ProductRepository repo;
 	
+	// Get method
 	// Lists a product based on an id provided
 	public Product findById (Integer id) {
 		Optional<Product> product = repo.findById(id);
@@ -29,26 +30,35 @@ public class ProductService {
 				);
 	}
 	
+	// Get all method
 	// Lists all the products
 	public List<Product> findAll() {
 		return repo.findAll();
 	}
 	
+	// Post method
 	public Product save(Product product) {
 		product.setId(null);
 		return repo.save(product);
 	}
 	
+	// Put method
 	public Product update(Product product) {
 		Product oldProduct = this.findById(product.getId());
 		this.updateProduct(oldProduct, product);
 		return repo.save(oldProduct);
 	}
 	
+	// Private method to change property values of a product to the values of
+	// a updated one
 	private void updateProduct(Product oldProduct, Product updatedProduct) {
 		oldProduct.setName(updatedProduct.getName());
 		oldProduct.setAmount(updatedProduct.getAmount());
 		oldProduct.setValue(updatedProduct.getValue());
+	}
+	
+	public void delete(Integer id) {
+		repo.deleteById(id);
 	}
 	
 }
