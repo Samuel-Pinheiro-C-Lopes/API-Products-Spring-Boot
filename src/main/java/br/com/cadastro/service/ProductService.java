@@ -55,6 +55,6 @@ public class ProductService {
 	private void updateProduct(Product oldProduct, Product updatedProduct) {
 		oldProduct.setName(updatedProduct.getName());
 		oldProduct.setAmount(updatedProduct.getAmount());
-		oldProduct.setValue(updatedProduct.getValue());
+		oldProduct.setPrice(updatedProduct.getPrice());
 	}
 }

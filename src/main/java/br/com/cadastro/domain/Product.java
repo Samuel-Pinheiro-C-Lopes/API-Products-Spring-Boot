@@ -20,25 +20,29 @@ public class Product implements Serializable {
 	private Integer id;
 	private String name;
 	private Integer amount;
-	private Double value;
+	private Double price;
 	
-	// Constructor
-	public Product(Integer id, String name, Integer amount, Double value) {
+	// Constructors
+	
+	// Empty
+	public Product() {
+		
+	}
+	
+	// Full
+	public Product(Integer id, String name, Integer amount, Double price) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.amount = amount;
-		this.value = value;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
+		this.price = price;
 	}
 	
+	// Hash
+	
 	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", amount=" + amount + ", value=" + value + "]";
+	public int hashCode() {
+		return Objects.hash(amount, id, name, price);
 	}
 
 	@Override
@@ -50,10 +54,17 @@ public class Product implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
-		return Objects.equals(id, other.id);
+		return Objects.equals(amount, other.amount) && Objects.equals(id, other.id) && Objects.equals(name, other.name)
+				&& Objects.equals(price, other.price);
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", amount=" + amount + ", price=" + price + "]";
+	}
+
 	// Getters and Setters
+	
 	public Integer getId() {
 		return id;
 	}
@@ -78,11 +89,12 @@ public class Product implements Serializable {
 		this.amount = amount;
 	}
 
-	public Double getValue() {
-		return value;
+	public Double getPrice() {
+		return price;
 	}
 
-	public void setValue(Double value) {
-		this.value = value;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
+	
 }
